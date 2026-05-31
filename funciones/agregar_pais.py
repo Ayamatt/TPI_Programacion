@@ -1,0 +1,33 @@
+from archivos.csv_manager import (
+    cargar_paises,
+    guardar_paises
+)
+
+from validaciones.validaciones import (
+    validar_nombre_pais,
+    validar_poblacion,
+    validar_superficie,
+    validar_continente
+)
+
+def agregar_pais():
+
+    paises = cargar_paises()
+
+    nombre = validar_nombre_pais()
+    poblacion = validar_poblacion()
+    superficie = validar_superficie()
+    continente = validar_continente()
+
+    nuevo_pais = {
+        "nombre": nombre,
+        "poblacion": poblacion,
+        "superficie": superficie,
+        "continente": continente
+    }
+
+    paises.append(nuevo_pais)
+
+    guardar_paises(paises)
+
+    print("\nPaís agregado correctamente.")

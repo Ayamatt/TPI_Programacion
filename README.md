@@ -26,6 +26,8 @@ TPI_PROGRAMACION/
 ├── funciones/
 │   ├── agregar_pais.py
 │   ├── actualizar_pais.py
+    ├── busqueda_pais.py
+    ├── filtrar_pais.py  
 │
 ├── validaciones/
 │   └── validaciones.py
@@ -84,7 +86,7 @@ funciones/filtrar_pais.py
 Implementar:
 
 ```python
-def filtrar_pais()
+def filtrar_pais() listo
 ```
 
 Con submenú:
@@ -135,15 +137,15 @@ Mostrar los países dentro del rango.
 Agregar en:
 
 ```text
-validaciones/validaciones.py
+validaciones/validaciones.py listo
 ```
 
 Funciones para validar:
 
 ```python
-validar_opcion_filtro()
-validar_rango_poblacion()
-validar_rango_superficie()
+validar_opcion_filtro() listo
+validar_rango_poblacion() listo
+validar_rango_superficie() listo
 ```
 
 ---

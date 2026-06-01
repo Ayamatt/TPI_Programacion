@@ -27,7 +27,8 @@ TPI_PROGRAMACION/
 │   ├── agregar_pais.py
 │   ├── actualizar_pais.py
     ├── busqueda_pais.py
-    ├── filtrar_pais.py  
+    ├── filtrar_pais.py 
+    ├── ver_estadisticas.py 
 │
 ├── validaciones/
 │   └── validaciones.py

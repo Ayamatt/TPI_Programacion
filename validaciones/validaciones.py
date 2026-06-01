@@ -118,5 +118,20 @@ def validar_rango_superficie():
             
         except ValueError:
             print("Error: Ingrese un rango de superficie mayor/igual a 1 km² y menor/igual a 17.100.000 km²")
+
+
+#Funciones validar estadisticas
         
         
+def validar_menu_estadisticas():
+    while True:
+
+        try:
+            seleccion_usuario = int(input('Ingrese la opción: '))
+            if seleccion_usuario >= 1 and seleccion_usuario <= 4:
+                return seleccion_usuario
+            else:
+                print('Error: Seleccione un número entero entre 1 y 4\n')
+            
+        except ValueError:
+            print('Error: Seleccione un número entero entre 1 y 4\n')

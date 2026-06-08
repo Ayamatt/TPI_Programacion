@@ -26,6 +26,10 @@ def agregar_pais():
         "continente": continente
     }
 
+    for pais in paises:
+        if pais['nombre'] == nuevo_pais['nombre']:
+            return print("Error: el país ya se encuentra cargado.")
+
     paises.append(nuevo_pais)
 
     guardar_paises(paises)

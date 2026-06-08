@@ -1,34 +1,38 @@
-# Organización del Trabajo - TPI Programación
+# TPI Programación - Gestión de Países
 
-## Estado actual del proyecto
+## Integrantes
 
-Actualmente se encuentra implementada la estructura base del proyecto:
+* Francisco Romero
+* Patrick Da Graça
 
-* Menú principal en consola.
-* Organización modular por carpetas.
-* Lectura y escritura del archivo CSV.
-* Funcionalidad para agregar países.
-* Funcionalidad para actualizar población y superficie.
-* Validaciones básicas de entradas.
-* Módulo centralizado para manejo de archivos CSV.
+## Descripción
 
-### Estructura actual
+Este proyecto consiste en una aplicación de consola desarrollada en Python para la gestión de información de países almacenada en un archivo CSV.
+
+El sistema permite agregar nuevos países, actualizar información existente, realizar búsquedas, aplicar filtros, ordenar registros y obtener estadísticas sobre los datos almacenados.
+
+La información se persiste en un archivo CSV ubicado dentro de la carpeta `datos`.
+
+---
+
+# Estructura del Proyecto
 
 ```text
 TPI_PROGRAMACION/
 │
-├── datos/
-│   └── datos.csv
-│
 ├── archivos/
 │   └── csv_manager.py
+│
+├── datos/
+│   └── datos.csv
 │
 ├── funciones/
 │   ├── agregar_pais.py
 │   ├── actualizar_pais.py
-    ├── busqueda_pais.py
-    ├── filtrar_pais.py 
-    ├── ver_estadisticas.py 
+│   ├── busqueda_pais.py
+│   ├── filtrar_pais.py
+│   ├── ordenar_pais.py
+│   └── ver_estadisticas.py
 │
 ├── validaciones/
 │   └── validaciones.py
@@ -38,148 +42,99 @@ TPI_PROGRAMACION/
 
 ---
 
-## Tareas sugeridas
+# Requisitos
 
-### Opción 3 - Buscar país por nombre
+* Python 3.10 o superior.
 
-Crear el archivo:
+No se utilizan librerías externas.
 
-```text
-funciones/busqueda_pais.py
-```
+---
 
-Implementar:
+# Ejecución
 
-```python
-def buscar_pais():
-```
+Desde la carpeta raíz del proyecto ejecutar:
 
-Requerimientos:
-
-* Utilizar `cargar_paises()`.
-* Permitir coincidencia exacta o parcial.
-* Ignorar mayúsculas/minúsculas.
-* Mostrar los datos completos del país encontrado.
-* Informar cuando no existan coincidencias.
-
-Ejemplo:
-
-```text
-Ingrese nombre: arg
-
-Resultado:
-Argentina
-Población: 45376763
-Superficie: 2780400
-Continente: América
+```bash
+python main.py
 ```
 
 ---
 
-### Opción 4 - Filtrar países
+# Funcionalidades
 
-Crear:
+## 1. Agregar país
 
-```text
-funciones/filtrar_pais.py
-```
-
-Implementar:
-
-```python
-def filtrar_pais() listo
-```
-
-Con submenú:
-
-```text
-1) Filtrar por continente
-2) Filtrar por población
-3) Filtrar por superficie
-4) Volver
-```
-
-#### Filtrar por continente
-
-Ejemplo:
-
-```text
-Ingrese continente: América
-```
-
-Mostrar todos los países pertenecientes a ese continente.
-
-#### Filtrar por población
-
-Solicitar:
-
-```text
-Población mínima
-Población máxima
-```
-
-Mostrar los países dentro del rango.
-
-#### Filtrar por superficie
-
-Solicitar:
-
-```text
-Superficie mínima
-Superficie máxima
-```
-
-Mostrar los países dentro del rango.
-
----
-
-### Validaciones necesarias
-
-Agregar en:
-
-```text
-validaciones/validaciones.py listo
-```
-
-Funciones para validar:
-
-```python
-validar_opcion_filtro() listo
-validar_rango_poblacion() listo
-validar_rango_superficie() listo
-```
-
----
-
-## Recomendaciones
-
-* Todas las funciones deben trabajar utilizando:
-
-```python
-paises = cargar_paises()
-```
-
-* No acceder directamente al CSV desde las funciones de búsqueda o filtros.
-* Utilizar listas de diccionarios para recorrer los datos.
-* Mantener una función por responsabilidad.
-* Seguir la misma estructura utilizada en agregar y actualizar país.
-
----
-
-## Pendiente para etapas posteriores
-
-### Opción 5
-
-Ordenamientos:
+Permite registrar un nuevo país indicando:
 
 * Nombre
 * Población
 * Superficie
-* Ascendente y descendente
+* Continente
 
-### Opción 6
+Validaciones:
 
-Estadísticas:
+* El nombre no puede contener números.
+* La población debe ser un entero positivo.
+* La superficie debe ser un entero positivo.
+* El continente debe pertenecer a una lista predefinida.
+* No se permiten países duplicados.
+
+---
+
+## 2. Actualizar país
+
+Permite modificar:
+
+* Población
+* Superficie
+
+de un país previamente registrado.
+
+Antes de realizar la modificación se verifica que el país exista en el dataset.
+
+---
+
+## 3. Buscar país
+
+Permite buscar países mediante coincidencia parcial o exacta sobre el nombre.
+
+La búsqueda no distingue entre mayúsculas y minúsculas.
+
+---
+
+## 4. Filtrar países
+
+Permite filtrar registros por:
+
+### Continente
+
+Muestra todos los países pertenecientes al continente seleccionado.
+
+### Población
+
+Permite definir un rango mínimo y máximo de población.
+
+### Superficie
+
+Permite definir un rango mínimo y máximo de superficie.
+
+---
+
+## 5. Ordenar países
+
+Permite ordenar los registros por:
+
+* Nombre
+* Población
+* Superficie
+
+La superficie puede visualizarse tanto en orden ascendente como descendente.
+
+---
+
+## 6. Estadísticas
+
+El sistema permite visualizar:
 
 * País con mayor población.
 * País con menor población.
@@ -187,5 +142,45 @@ Estadísticas:
 * Promedio de superficie.
 * Cantidad de países por continente.
 
+---
+
+# Persistencia de Datos
+
+Los datos son almacenados en:
+
+```text
+datos/datos.csv
 ```
-```
+
+Al iniciar el programa los registros son cargados desde el archivo CSV y convertidos a una lista de diccionarios.
+
+Cuando se agrega o actualiza información, el dataset es reescrito automáticamente para mantener la persistencia de los cambios.
+
+---
+
+# Validaciones Implementadas
+
+* Control de opciones de menú.
+* Control de rangos numéricos.
+* Verificación de existencia de países.
+* Validación de continentes.
+* Validación de población.
+* Validación de superficie.
+* Validación de formato durante la carga del CSV.
+
+Las líneas con formato inválido son ignoradas y notificadas al usuario mediante un mensaje de advertencia.
+
+---
+
+# Diseño Utilizado
+
+El proyecto fue desarrollado utilizando una arquitectura modular.
+
+Se implementó una separación de responsabilidades mediante módulos independientes:
+
+* Gestión de archivos CSV.
+* Validaciones.
+* Funcionalidades principales.
+* Menú principal.
+
+La información se manipula internamente mediante listas de diccionarios, facilitando las operaciones de búsqueda, filtrado, ordenamiento y generación de estadísticas.

@@ -2,6 +2,8 @@
 from validaciones.validaciones import validar_menu_estadisticas
 from archivos.csv_manager import cargar_paises
 
+# Permite ver estadísticas de los países del dataset (País con mayor y menor porblación, promedio total de población y superficie y cantidad de países por continente)
+
 def ver_estadisticas():
 
     paises = cargar_paises()
@@ -87,7 +89,4 @@ def ver_estadisticas():
                 europa += 1
 
         print(f'\nPaíses por continente\n\nAmérica: {america} países\nAsia: {asia} países\nOceanía: {oceania} países\nÁfrica: {africa} países\nEuropa: {europa} países\n')
-        return 
-
-
-
+        return

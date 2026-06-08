@@ -1,6 +1,8 @@
 from archivos.csv_manager import cargar_paises
 from validaciones.validaciones import validar_opcion_filtro
 
+# Permite ordenar los países en orden alfabético por su nombre, ordenar de forma ascendente por su población y de forma ascendente y descendente por su superficie.
+
 def ordenar_pais():
 
     paises = cargar_paises()

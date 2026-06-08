@@ -1,19 +1,26 @@
-def buscar_pais(pais_buscado , paises): #devuelve una lista con el diccionario del país encontrado
+from archivos.csv_manager import (
+    cargar_paises,
+)
 
-    pais_encontrado = []
+def buscar_pais():
+
+    paises = cargar_paises()
+
+    pais_buscado = input("Ingrese el país que desea buscar: ")
     
-    #Paises lista de dict
     for pais in paises:
-        if pais_buscado.lower() == pais['nombre']: #coincidencia exacta
-            pais_encontrado.append(pais) 
-            return pais_encontrado
-        elif pais_buscado.lower() in pais['nombre']: #coincidencia parcial
-            pais_encontrado.append(pais)
-            return pais_encontrado
-        else:
-            return 'No se encontró el país ingresado'
+        if pais_buscado.lower() in pais['nombre'].lower():
+            print(f"=== Información del país ===\n")
+            print(f"Nombre: {pais['nombre']}")
+            print(f"Población: {pais['poblacion']}")
+            print(f"Superficie: {pais['superficie']}")
+            print(f"Continente: {pais['continente']}\n")
+            return
 
-def datos_limpios(pais_encontrado): #recibe la lista de diccionarios de la búsqueda por país y nos devuelve los datos limpios
+    return print('No se encontró el país ingresado.')
+
+
+def datos_limpios(pais_encontrado):
     
     datos = ''
 
@@ -21,9 +28,3 @@ def datos_limpios(pais_encontrado): #recibe la lista de diccionarios de la búsq
         for clave , valor in pais.items():
             datos += (f"{clave.capitalize()}: {str(valor).capitalize()}\n")
     return datos
-
-
-
-            
-
-

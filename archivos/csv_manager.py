@@ -5,17 +5,24 @@ def cargar_paises():
     with open("datos/datos.csv","r", encoding="utf-8") as archivo:
         lineas = archivo.readlines()
 
-    for linea in lineas[1:]:
-        datos = linea.strip().split(",")
+        for numero_linea, linea in enumerate(lineas[1:], start=2):
+            try:
+                datos = linea.strip().split(",")
 
-        pais = {
-            "nombre": datos[0],
-            "poblacion": int(datos[1]),
-            "superficie": int(datos[2]),
-            "continente": datos[3]
-        }
+                if len(datos) != 4:
+                    raise ValueError
 
-        paises.append(pais)
+                pais = {
+                    "nombre": datos[0],
+                    "poblacion": int(datos[1]),
+                    "superficie": int(datos[2]),
+                    "continente": datos[3]
+                }
+
+                paises.append(pais)
+
+            except ValueError:
+                print(f"Advertencia: línea {numero_linea} ignorada por formato inválido.")
 
     return paises
 

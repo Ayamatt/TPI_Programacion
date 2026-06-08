@@ -1,5 +1,9 @@
 from funciones.agregar_pais import agregar_pais
 from funciones.actualizar_pais import actualizar_pais
+from funciones.busqueda_pais import buscar_pais
+from funciones.filtrar_pais import filtrar_pais
+from funciones.ordenar_pais import ordenar_pais
+from funciones.ver_estadisticas import ver_estadisticas
 
 while True:
     print("===== Menú Principal =====\n")
@@ -34,11 +38,14 @@ while True:
             ordenar_pais()
 
         elif opcion == 6:
-            mostrar_estadisticas()
+            ver_estadisticas()
 
         else:
             print("¡Gracias por utilizar el sistema! Terminando...")
             break
 
+    except ValueError as e:
+        print(f"Error: Por favor ingrese una opción válida.\n")
+
     except Exception as e:
-        print(f"Error: {e}.\n")
+        print(f"Error: {e}\n")

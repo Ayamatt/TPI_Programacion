@@ -99,10 +99,13 @@ def validar_rango_poblacion():
 
     while True:
         try: 
-            rango_poblacion = int(input('Ingrese el rango solicitado: ')).strip()
+            rango_poblacion = int(input('Ingrese el rango solicitado: '))
 
             if rango_poblacion and rango_poblacion > 0:
                 return rango_poblacion
+
+            else:
+                print("Error: la población no puede ser menor a 1.")
             
         except ValueError:
             print('Ingrese solo números enteros')
@@ -115,7 +118,9 @@ def validar_rango_superficie():
 
             if superficie_ingresada >= 1 and superficie_ingresada <= 17100000: #MAX sería la superficie de Rusia
                 return superficie_ingresada
-            
+                
+            else:
+                print("Error: la población no puede ser menor a 1.")
         except ValueError:
             print("Error: Ingrese un rango de superficie mayor/igual a 1 km² y menor/igual a 17.100.000 km²")
 
@@ -128,10 +133,10 @@ def validar_menu_estadisticas():
 
         try:
             seleccion_usuario = int(input('Ingrese la opción: '))
-            if seleccion_usuario >= 1 and seleccion_usuario <= 4:
+            if seleccion_usuario >= 1 and seleccion_usuario <= 5:
                 return seleccion_usuario
             else:
-                print('Error: Seleccione un número entero entre 1 y 4\n')
+                print('Error: Seleccione un número entero entre 1 y 5\n')
             
         except ValueError:
-            print('Error: Seleccione un número entero entre 1 y 4\n')
+            print('Error: Seleccione un número entero entre 1 y 5\n')

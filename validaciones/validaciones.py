@@ -118,9 +118,10 @@ def validar_rango_superficie():
 
             if superficie_ingresada >= 1 and superficie_ingresada <= 17100000: #MAX sería la superficie de Rusia
                 return superficie_ingresada
-                
+
             else:
-                print("Error: la población no puede ser menor a 1.")
+                print("Error: la superficie no puede ser menor a 1.")
+
         except ValueError:
             print("Error: Ingrese un rango de superficie mayor/igual a 1 km² y menor/igual a 17.100.000 km²")
 

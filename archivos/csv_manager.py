@@ -30,7 +30,7 @@ def cargar_paises():
 def guardar_paises(paises):
 
     with open("datos/datos.csv", "w", encoding="utf-8") as archivo:
-        archivo.write("nombre, poblacion, superficie, continente\n")
+        archivo.write("nombre,poblacion,superficie,continente\n")
 
         for pais in paises:
             archivo.write(

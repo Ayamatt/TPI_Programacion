@@ -7,6 +7,8 @@ from validaciones.validaciones import (
 
 from archivos.csv_manager import cargar_paises
 
+# Permite filtrar países por continente, su población y su superficie
+
 def filtrar_pais():
 
     paises = cargar_paises()
@@ -42,6 +44,10 @@ def filtrar_pais():
         print('Rango máximo de población')
         rango_maximo = validar_rango_poblacion()
 
+        if rango_minimo > rango_maximo:
+            print("Error: el mínimo no puede ser mayor al máximo.")
+            return
+
         for pais in paises:
             if rango_minimo <= pais['poblacion'] <= rango_maximo:
                 for clave , valor in pais.items():
@@ -60,6 +66,10 @@ def filtrar_pais():
         rango_minimo = validar_rango_superficie()
         print('Ingresá el rango máximo de superficie')
         rango_maximo = validar_rango_superficie()
+
+        if rango_minimo > rango_maximo:
+            print("Error: el mínimo no puede ser mayor al máximo.")
+            return
 
         for pais in paises:
             if rango_minimo <= pais['superficie'] <= rango_maximo:

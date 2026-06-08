@@ -10,6 +10,8 @@ from validaciones.validaciones import (
     validar_continente
 )
 
+# Vuelve a escribir el dataset con el nuevo país agregado por el usuario al final
+
 def agregar_pais():
 
     paises = cargar_paises()
@@ -27,7 +29,7 @@ def agregar_pais():
     }
 
     for pais in paises:
-        if pais['nombre'] == nuevo_pais['nombre']:
+        if pais['nombre'].lower() == nuevo_pais['nombre'].lower():
             return print("Error: el país ya se encuentra cargado.")
 
     paises.append(nuevo_pais)

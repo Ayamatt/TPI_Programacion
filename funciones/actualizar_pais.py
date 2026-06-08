@@ -9,6 +9,8 @@ from validaciones.validaciones import (
     validar_superficie
 )
 
+# Esta función sirve para actualizar la población y la superficie de un país dado por el usuario.
+
 def actualizar_pais():
 
     paises = cargar_paises()

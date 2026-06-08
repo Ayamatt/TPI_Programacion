@@ -2,6 +2,8 @@ from archivos.csv_manager import (
     cargar_paises,
 )
 
+# Permite buscar un país por su nombre en el dataset
+
 def buscar_pais():
 
     paises = cargar_paises()
@@ -18,13 +20,3 @@ def buscar_pais():
             return
 
     return print('No se encontró el país ingresado.')
-
-
-def datos_limpios(pais_encontrado):
-    
-    datos = ''
-
-    for pais in pais_encontrado:
-        for clave , valor in pais.items():
-            datos += (f"{clave.capitalize()}: {str(valor).capitalize()}\n")
-    return datos

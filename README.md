@@ -184,3 +184,9 @@ Se implementó una separación de responsabilidades mediante módulos independie
 * Menú principal.
 
 La información se manipula internamente mediante listas de diccionarios, facilitando las operaciones de búsqueda, filtrado, ordenamiento y generación de estadísticas.
+
+---
+
+# Link vídeo explicativo: 
+
+https://www.youtube.com/watch?v=rBze1eRk_MM
